@@ -17,6 +17,12 @@ In today's digital landscape, we face a common frustration:
 *   **👀 The "Fragmented Tool" Fatigue**:
     *   *Scenario*: A college club needs to announce a hackathon.
     *   *Result*: They send a WhatsApp message, create a Google Form for RSVPs, and use Instagram for photos. Users have to switch between 3 apps just to participate.
+*   **🕸️ The "Social Disconnect" (Facebook Events)**:
+    *   *Scenario*: You organize a birthday on Facebook Events because it has good features.
+    *   *Result*: **Ghost Town**. No one checks Facebook daily anymore. The actual conversation happens in a separate group chat, creating a disconnect between the "Plan" and the "People."
+*   **🤯 The Complexity Barrier (Discord)**:
+    *   *Scenario*: A local book club just wants to chat and meet up.
+    *   *Result*: Discord offers great features but is **overwhelming** with channels, bots, and roles. Non-tech-savvy members get lost, hindering simple community connection.
 *   **🔒 Privacy & Data Concerns**: Popular apps upload *everything* to their servers. Why send your local music or personal voice notes to the cloud if they only need to be heard by friends nearby?
 *   **💡 Lack of Admin Control**: In standard group chats, anyone can delete messages (sometimes) or spam. There's no way to let *only* the event creator manage their specific event threads.
 
