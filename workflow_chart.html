@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+
+    <div class="mermaid">
+gitGraph
+    commit id: "Initial-V1.0"
+    
+    %% Branch 1: Dark Mode
+    branch feature-dark-mode
+    checkout feature-dark-mode
+    commit id: "Tailwind-Config"
+    commit id: "CSS-Variables"
+    commit id: "ThemeToggle-Comp"
+    checkout main
+    commit id: "About-Us-Section"
+    checkout feature-dark-mode
+    merge main id: "Rebase-Main" type: HIGHLIGHT
+    checkout main
+    merge feature-dark-mode id: "Merge-Dark-Mode"
+    commit id: "v1.1-Release" tag: "v1.1"
+
+    %% Branch 2: Status Music
+    branch feature-music
+    checkout feature-music
+    commit id: "IndexedDB-Setup"
+    commit id: "Upload-Modal-UI"
+    commit id: "Audio-Player-Logic"
+    checkout main
+    merge feature-music id: "Merge-Music"
+
+    %% Branch 3: v1.5 Bug Fixes
+    branch v1.5-fixes
+    checkout v1.5-fixes
+    commit id: "Dashboard-Logout"
+    commit id: "Backend-Delete-API"
+    commit id: "Secure-Delete-Btn"
+    checkout main
+    merge v1.5-fixes id: "Merge-v1.5"
+    commit id: "v1.5-Release" tag: "v1.5"
+    </div>
+</body>
+</html>

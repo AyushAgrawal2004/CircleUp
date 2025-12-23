@@ -81,11 +81,34 @@ addContentSlide("4. Technical Architecture (Brief)", [
     { label: "Real-time", text: "Socket.IO for instant msg & status updates." }
 ]);
 
-// 6. Git Strategy
-addContentSlide("5. Version Control Strategy", [
-    { label: "Feature Branch Workflow", text: "Isolated branches per feature (main, dark-mode, status-music)." },
-    { label: "Rebase vs Merge", text: "Used 'git rebase' to maintain linear history and avoid merge bubbles." },
-    { label: "Integration", text: "Fast-Forward merges for clean deployment." }
+// 6. Git Strategy - Deep Dive
+// Slide 6.1: Why Git?
+addContentSlide("5.1 Version Control: Why Git?", [
+    { label: "Safety Net", text: "Every change is tracked. 'git reflog' saves us from mistakes." },
+    { label: "Collaboration", text: "Enables multiple developers (or feature branches) to work in parallel." },
+    { label: "Code Integrity", text: "Ensures production code (`main`) remains stable while features are tested elsewhere." }
+]);
+
+// Slide 6.2: Branching Strategy
+addContentSlide("5.2 Branching Strategy", [
+    { label: "main", text: "The 'Golden Copy'. Only stable, tested code lands here." },
+    { label: "v1.1 (Dark Mode)", text: "Isolated logic for theming. Prevents CSS bugs from affecting main app." },
+    { label: "v1.2 (Status Music)", text: "Experimental features (IndexedDB) kept separate until proven stable." },
+    { label: "v1.5 (Polishing)", text: "Release prep, bug fixes, and final touches." }
+]);
+
+// Slide 6.3: The Rebase Workflow
+addContentSlide("5.3 DevOps Logic: Rebase over Merge", [
+    { label: "The Problem", text: "Standard merges create 'commit bubbles' and messy history." },
+    { label: "The Solution", text: "`git rebase main` moves feature commits on TOP of the latest main." },
+    { label: "Benefit", text: "Linear History. Makes tracking bugs (`git bisect`) and code reviews much easier." }
+]);
+
+// Slide 6.4: GitHub Features
+addContentSlide("5.4 GitHub Power Tools", [
+    { label: "Semantic Commits", text: "Using `feat:`, `fix:`, `docs:` prefixes for clarity." },
+    { label: "Release Tags", text: "Using `git tag v1.5` to mark specific deployment points." },
+    { label: "Remote Backup", text: "Decentralized code storage ensures no data loss." }
 ]);
 
 // 7. Workflow Diagram

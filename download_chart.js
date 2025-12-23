@@ -4,18 +4,18 @@ const fs = require('fs');
 const mermaidCode = `
 gitGraph
     commit id: "Initial-V1.0"
-    branch "dark-mode"
-    checkout "dark-mode"
+    branch "v1.1"
+    checkout "v1.1"
     commit id: "Config"
     commit id: "Styles"
     checkout main
-    merge "dark-mode" id: "Rebase"
-    branch "music"
-    checkout "music"
+    merge "v1.1" id: "Rebase"
+    branch "v1.2"
+    checkout "v1.2"
     commit id: "IDB-Setup"
     commit id: "UI"
     checkout main
-    merge "music"
+    merge "v1.2"
     branch "v1.5"
     checkout "v1.5"
     commit id: "Logout"

@@ -56,19 +56,19 @@ CircleUp bridges these gaps by offering a unified platform:
 We adopted a robust **Feature Branch Workflow** to ensure code stability and enable parallel development.
 
 ### 🌿 Branching Structure
-Instead of committing directly to `main`, we isolated every major feature into its own branch:
+Instead of committing directly to `main`, we isolated every major feature into its own versioned branch:
 
 1.  **`main`**: The stable production-ready branch.
-2.  **`dark-mode`**: Dedicated branch for implementing system-wide theming.
-3.  **`status-music`**: Experimental branch for the local audio status feature.
-4.  **`v1.5`**: Release branch for a collection of bug-fixes and minor enhancements.
+2.  **`v1.1` (Dark Mode)**: Dedicated system-wide theming.
+3.  **`v1.2` (Status Music)**: Experimental local audio feature.
+4.  **`v1.5` (Polishing)**: Release bug-fixes and enhancements.
 
 ### 🔄 DevOps Highlight: Git Rebase vs. Merge
 We utilized advanced Git tools to maintain a clean history.
 
-*   **Scenario**: While working on `dark-mode`, changes were made to the `main` branch (e.g., "About Us" section).
+*   **Scenario**: While working on `v1.1`, changes were made to `main`.
 *   **Action**: Used `git rebase main` while on the feature branch.
-*   **Result**: This moved the `dark-mode` commits *on top* of the new `main` commits, creating a linear history without unnecessary "merge bubbles."
+*   **Result**: This moved the `v1.1` commits *on top* of the new `main` commits, creating a linear history.
 
 ### 🚀 Integration Workflow
 1.  **Develop**: Code written in `feature-branch`.
@@ -85,36 +85,36 @@ gitGraph
     commit id: "Initial-V1.0"
     
     %% Branch 1: Dark Mode
-    branch feature-dark-mode
-    checkout feature-dark-mode
+    branch v1.1
+    checkout v1.1
     commit id: "Tailwind-Config"
     commit id: "CSS-Variables"
     commit id: "ThemeToggle-Comp"
     checkout main
     commit id: "About-Us-Section"
-    checkout feature-dark-mode
+    checkout v1.1
     merge main id: "Rebase-Main" type: HIGHLIGHT
     checkout main
-    merge feature-dark-mode id: "Merge-Dark-Mode"
+    merge v1.1 id: "Merge-v1.1"
     commit id: "v1.1-Release" tag: "v1.1"
 
     %% Branch 2: Status Music
-    branch feature-music
-    checkout feature-music
+    branch v1.2
+    checkout v1.2
     commit id: "IndexedDB-Setup"
     commit id: "Upload-Modal-UI"
     commit id: "Audio-Player-Logic"
     checkout main
-    merge feature-music id: "Merge-Music"
+    merge v1.2 id: "Merge-v1.2"
 
     %% Branch 3: v1.5 Bug Fixes
-    branch v1.5-fixes
-    checkout v1.5-fixes
+    branch v1.5
+    checkout v1.5
     commit id: "Dashboard-Logout"
     commit id: "Backend-Delete-API"
     commit id: "Secure-Delete-Btn"
     checkout main
-    merge v1.5-fixes id: "Merge-v1.5"
+    merge v1.5 id: "Merge-v1.5"
     commit id: "v1.5-Release" tag: "v1.5"
 ```
 
