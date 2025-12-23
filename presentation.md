@@ -12,9 +12,13 @@ In today's digital landscape, we face a common frustration:
 
 *   **🚫 No Event Planning in WhatsApp**:
     *   *Scenario*: You try to plan a trip or a meetup in a WhatsApp group.
-    *   *Result*: Details get buried under hundreds of messages ("Good morning" spam), leading to confusion about *who* is coming and *where* to meet.
+    *   *Result*: Details get buried under hundreds of messages ("Good morning" spam), leading to confusion about *who* is coming and *where* to meet. You have to scroll up endlessly or check a separate calendar app.
 *   **📉 Boring Status Updates**: Standard text/image statuses lack the "vibe." You can't add your favorite song to express your mood without using third-party editing tools.
+*   **👀 The "Fragmented Tool" Fatigue**:
+    *   *Scenario*: A college club needs to announce a hackathon.
+    *   *Result*: They send a WhatsApp message, create a Google Form for RSVPs, and use Instagram for photos. Users have to switch between 3 apps just to participate.
 *   **🔒 Privacy & Data Concerns**: Popular apps upload *everything* to their servers. Why send your local music or personal voice notes to the cloud if they only need to be heard by friends nearby?
+*   **💡 Lack of Admin Control**: In standard group chats, anyone can delete messages (sometimes) or spam. There's no way to let *only* the event creator manage their specific event threads.
 
 
 ## 3. The Solution: CircleUp
