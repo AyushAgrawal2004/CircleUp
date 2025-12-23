@@ -152,3 +152,23 @@ export const getEventRequests = async (req, res) => {
         res.status(500).json({ error: "Internal server error" });
     }
 }
+
+export const deleteEvent = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const userId = req.user._id;
+
+        const event = await Event.findById(id);
+        if (!event) return res.status(404).json({ error: "Event not found" });
+
+        if (event.createdBy.toString() !== userId.toString()) {
+            return res.status(403).json({ error: "Unauthorized. Only the creator can delete this event." });
+        }
+
+        await Event.findByIdAndDelete(id);
+        res.status(200).json({ message: "Event deleted successfully" });
+    } catch (error) {
+        console.log("Error in deleteEvent", error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+};

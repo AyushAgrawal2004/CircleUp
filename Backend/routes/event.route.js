@@ -1,5 +1,5 @@
 import express from "express";
-import { createEvent, getGroupEvents, joinEvent, requestJoin, handleRequest, getAllEvents, getEventRequests } from "../controller/event.controller.js";
+import { createEvent, getGroupEvents, joinEvent, requestJoin, handleRequest, getAllEvents, getEventRequests, deleteEvent } from "../controller/event.controller.js";
 import secureRoute from "../middleware/secureRoute.js";
 
 const router = express.Router();
@@ -11,5 +11,6 @@ router.post("/request/:id", secureRoute, requestJoin);
 router.post("/handle-request/:id", secureRoute, handleRequest);
 router.get("/all", secureRoute, getAllEvents);
 router.get("/requests/:id", secureRoute, getEventRequests);
+router.delete("/delete/:id", secureRoute, deleteEvent);
 
 export default router;

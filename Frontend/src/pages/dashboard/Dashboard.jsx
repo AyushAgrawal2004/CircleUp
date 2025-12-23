@@ -7,6 +7,8 @@ import ManageRequestsModal from "../../components/events/ManageRequestsModal";
 import { useAuth } from "../../context/AuthProvider";
 import { CiSearch, CiCirclePlus } from "react-icons/ci";
 import { toast } from "react-hot-toast";
+import Cookies from "js-cookie";
+import { BiLogOutCircle } from "react-icons/bi";
 
 const Dashboard = () => {
     const [activeTab, setActiveTab] = useState("communities"); // 'communities' or 'events'
@@ -41,6 +43,19 @@ const Dashboard = () => {
     const filteredExploreGroups = allGroups.filter(g =>
         g.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
+
+    const handleLogout = async () => {
+        try {
+            await axios.post("/api/user/logout");
+            localStorage.removeItem("ChatApp");
+            Cookies.remove("jwt");
+            toast.success("Logged out successfully");
+            window.location.reload();
+        } catch (error) {
+            console.log("Error in Logout", error);
+            toast.error("Error in logging out");
+        }
+    };
 
     const filteredEvents = allEvents.filter(e =>
         e.title.toLowerCase().includes(searchQuery.toLowerCase())
@@ -80,6 +95,13 @@ const Dashboard = () => {
                             Create
                         </button>
                     )}
+                    <button
+                        onClick={handleLogout}
+                        className="p-2 rounded-full text-[var(--accent-primary)] hover:bg-[var(--bg-secondary)] transition-colors"
+                        title="Logout"
+                    >
+                        <BiLogOutCircle className="text-3xl" />
+                    </button>
                 </div>
             </header>
 

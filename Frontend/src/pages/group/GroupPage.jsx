@@ -10,6 +10,7 @@ import { useSocketContext } from "../../context/SocketContext";
 import CreateEventModal from "../../components/events/CreateEventModal";
 import StatusList from "../../components/status/StatusList";
 import { toast } from "react-hot-toast";
+import { MdDelete } from "react-icons/md";
 
 const GroupPage = () => {
     const { id } = useParams();
@@ -60,9 +61,20 @@ const GroupPage = () => {
             const res = await axios.get(`/api/event/group/${id}`);
             setEvents(res.data);
         } catch (error) {
-            toast.error(error.response?.data?.error || "Failed to join event");
         }
     }
+
+    const handleDeleteEvent = async (eventId) => {
+        if (!window.confirm("Are you sure you want to delete this event?")) return;
+        try {
+            await axios.delete(`/api/event/delete/${eventId}`);
+            toast.success("Event deleted");
+            const res = await axios.get(`/api/event/group/${id}`);
+            setEvents(res.data);
+        } catch (error) {
+            toast.error(error.response?.data?.error || "Failed to delete event");
+        }
+    };
 
     if (!group) return <div className="flex h-screen items-center justify-center text-[var(--text-secondary)]">Loading community...</div>;
 
@@ -112,8 +124,19 @@ const GroupPage = () => {
 
                     <div className="space-y-4">
                         {events.length > 0 ? events.map(event => (
-                            <div key={event._id} className="bg-[var(--card-bg)] p-5 rounded-xl border border-[var(--border-subtle)] hover:border-[var(--accent-primary)] transition-colors group">
-                                <h4 className="font-bold text-[var(--text-primary)] mb-1">{event.title}</h4>
+                            <div key={event._id} className="bg-[var(--card-bg)] p-5 rounded-xl border border-[var(--border-subtle)] hover:border-[var(--accent-primary)] transition-colors group relative">
+                                <div className="flex justify-between items-start">
+                                    <h4 className="font-bold text-[var(--text-primary)] mb-1">{event.title}</h4>
+                                    {event.createdBy === authUser.user._id && (
+                                        <button
+                                            onClick={() => handleDeleteEvent(event._id)}
+                                            className="text-red-500 hover:bg-red-50 p-1.5 rounded-full transition-colors"
+                                            title="Delete Event"
+                                        >
+                                            <MdDelete />
+                                        </button>
+                                    )}
+                                </div>
                                 <div className="flex items-center gap-2 text-xs text-[var(--text-secondary)] mb-3">
                                     <span>{new Date(event.date).toLocaleDateString()}</span>
                                     <span>•</span>
