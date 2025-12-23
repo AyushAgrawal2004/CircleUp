@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import musicTracks from "../../utils/musicConfig";
+// import musicTracks from "../../utils/musicConfig";
+import { saveAudio } from "../../utils/db";
 
 const UploadStatusModal = ({ groupId, onClose, onSuccess }) => {
     const [file, setFile] = useState(null);
@@ -23,10 +24,24 @@ const UploadStatusModal = ({ groupId, onClose, onSuccess }) => {
         if (!file) return toast.error("Please select a file");
 
         setLoading(true);
+        let musicTrackId = "";
+
+        // Handle local music upload
+        if (selectedMusic && typeof selectedMusic === 'object') {
+            try {
+                musicTrackId = await saveAudio(selectedMusic);
+            } catch (err) {
+                console.error("Failed to save audio locally", err);
+                toast.error("Failed to process audio file");
+                setLoading(false);
+                return;
+            }
+        }
+
         const formData = new FormData();
         formData.append("file", file);
         formData.append("caption", caption);
-        formData.append("musicTrack", selectedMusic);
+        formData.append("musicTrack", musicTrackId);
         formData.append("groupId", groupId);
 
         try {
@@ -85,18 +100,14 @@ const UploadStatusModal = ({ groupId, onClose, onSuccess }) => {
 
                     {/* Music Selector */}
                     <div className="space-y-2">
-                        <label className="text-xs text-[var(--text-secondary)] font-medium uppercase">Background Music</label>
-                        <select
-                            value={selectedMusic}
-                            onChange={(e) => setSelectedMusic(e.target.value)}
-                            className="w-full bg-[var(--bg-secondary)] border border-[var(--border-subtle)] rounded-xl px-4 py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent-primary)] appearance-none"
-                        >
-                            {musicTracks.map((track, idx) => (
-                                <option key={idx} value={track.path}>
-                                    {track.name}
-                                </option>
-                            ))}
-                        </select>
+                        <label className="text-xs text-[var(--text-secondary)] font-medium uppercase">Background Music (Local Only)</label>
+                        <input
+                            type="file"
+                            accept="audio/*"
+                            onChange={(e) => setSelectedMusic(e.target.files[0])}
+                            className="w-full bg-[var(--bg-secondary)] border border-[var(--border-subtle)] rounded-xl px-4 py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent-primary)]"
+                        />
+                        {selectedMusic && <span className="text-xs text-[var(--accent-primary)] truncate block mt-1">{selectedMusic.name}</span>}
                     </div>
 
                     <input

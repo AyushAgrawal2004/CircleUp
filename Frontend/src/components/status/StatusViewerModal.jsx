@@ -3,6 +3,7 @@ import axios from "axios";
 import { formatDistanceToNow } from "date-fns";
 import { useAuth } from "../../context/AuthProvider";
 import { toast } from "react-hot-toast";
+import { getAudio } from "../../utils/db";
 
 const StatusViewerModal = ({ statuses, initialIndex, onClose, onDelete }) => {
     const [currentIndex, setCurrentIndex] = useState(initialIndex);
@@ -22,15 +23,35 @@ const StatusViewerModal = ({ statuses, initialIndex, onClose, onDelete }) => {
             axios.post(`/api/status/view/${status._id}`).catch(err => console.error(err));
 
             // Handle Music
-            if (status.musicTrack) {
-                audioRef.current.src = status.musicTrack;
-                audioRef.current.loop = true;
-                audioRef.current.muted = isMuted;
-                audioRef.current.play().catch(e => console.log("Audio play failed:", e));
-            } else {
-                audioRef.current.pause();
-                audioRef.current.src = "";
-            }
+            const playAudio = async () => {
+                if (status.musicTrack) {
+                    let src = status.musicTrack;
+
+                    if (status.musicTrack.startsWith("local-")) {
+                        try {
+                            const file = await getAudio(status.musicTrack);
+                            if (file) {
+                                src = URL.createObjectURL(file);
+                            } else {
+                                console.warn("Local audio file not found");
+                                return;
+                            }
+                        } catch (e) {
+                            console.error("Error loading local audio", e);
+                            return;
+                        }
+                    }
+
+                    audioRef.current.src = src;
+                    audioRef.current.loop = true;
+                    audioRef.current.muted = isMuted;
+                    audioRef.current.play().catch(e => console.log("Audio play failed:", e));
+                } else {
+                    audioRef.current.pause();
+                    audioRef.current.src = "";
+                }
+            };
+            playAudio();
         }
 
         return () => {
