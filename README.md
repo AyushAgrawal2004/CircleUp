@@ -1,18 +1,54 @@
-# ChatApp
+# CircleUp
 
-A real-time chat application built with the MERN stack (MongoDB, Express, React, Node.js) and Socket.IO.
+<div align="center">
+  <img src="./Print.svg" alt="CircleUp Logo" width="120" height="120" />
+  <br />
+  <h3>Connect, Share, and Thrive</h3>
+</div>
 
-## Project Structure
+<div align="center">
 
-- **Frontend**: React application maintained with Vite.
-- **Backend**: Node.js/Express server with MongoDB.
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
+![Node](https://img.shields.io/badge/Node.js-v14+-green)
+![React](https://img.shields.io/badge/React-v18+-blue)
 
-## Getting Started
+</div>
+
+---
+
+**CircleUp** is a modern, real-time chat and community application built to foster connection. Whether you're coordinating with a group, planning events, or just sharing your daily vibe with music-enhanced statuses, CircleUp brings it all together in a sleek, dark-mode-ready interface.
+
+## 🌟 Key Features
+
+### 💬 Real-Time Communication
+*   **Instant Messaging**: Powered by Socket.IO for seamless, real-time chat.
+*   **Group Chats**: Create and manage communities.
+*   **Media Support**: Share images and files effortlessly.
+
+### 📅 Event Management
+*   **Plan Events**: Communities can organize events with Title, Date, and Location.
+*   **RSVP System**: Users can request to join, and creators can manage attendee lists.
+*   **Restricted Control**: Only event creators can delete their events.
+
+### 🎵 Status Updates
+*   **Multimedia Statuses**: Share photos or videos.
+*   **Custom Background Music**: Upload your own local audio tracks to set the mood for your status (stored locally for privacy/bandwidth).
+*   **Viewer Insights**: See who viewed your status.
+
+### 🎨 User Experience
+*   **Dark Mode**: Native dark mode support with a convenient toggle.
+*   **Responsive Design**: Built with TailwindCSS and DaisyUI for a smooth experience on any device.
+*   **Secure Authentication**: JWT-based auth with secure cookie handling.
+*   **Dashboard**: A central hub to explore communities and events.
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js installed
-- MongoDB installed and running (or a MongoDB Atlas connection string)
+*   [Node.js](https://nodejs.org/) installed
+*   [MongoDB](https://www.mongodb.com/) installed (or Atlas URI)
 
 ### Installation
 
@@ -24,10 +60,6 @@ A real-time chat application built with the MERN stack (MongoDB, Express, React,
 
 2.  **Install dependencies:**
 
-    *   **Root (if applicable):**
-        ```bash
-        npm install
-        ```
     *   **Frontend:**
         ```bash
         cd Frontend
@@ -42,38 +74,34 @@ A real-time chat application built with the MERN stack (MongoDB, Express, React,
 ### Configuration
 
 1.  **Backend:**
-    Create a `.env` file in the `Backend` directory with the following variables:
+    Create a `.env` file in the `Backend` directory:
     ```env
     PORT=5000
     MONGODB_URI=<your_mongodb_connection_string>
     JWT_SECRET=<your_jwt_secret>
-    # Add other necessary environment variables here
     ```
 
 2.  **Frontend:**
-    Create a `.env` file in the `Frontend` directory if required by your setup (e.g., API URL).
+    (Optional) Create `.env` in `Frontend` if you have custom API endpoints.
 
-### Running the Application
+### Running the App
 
-1.  **Start the Backend:**
+1.  **Start Backend:**
     ```bash
     cd Backend
     npm start
     ```
-    The server will run on `http://localhost:5000` (or your defined PORT).
-
-2.  **Start the Frontend:**
+2.  **Start Frontend:**
     ```bash
     cd Frontend
     npm run dev
     ```
-    The application will act as a SPA.
 
-## Technologies Used
+## 🛠️ Technologies Used
 
-- **Frontend:** React, Vite, TailwindCSS, DaisyUI, Zustand, Axios, Socket.IO Client
-- **Backend:** Node.js, Express, Mongoose, Socket.IO, JWT, BcryptJS, Cookie-Parser, Multer, Cloudinary
+*   **Frontend:** React, Vite, TailwindCSS, DaisyUI, Zustand, Axios
+*   **Backend:** Node.js, Express, Mongoose, Socket.IO, JWT, Cookie-Parser, Multer
 
-## License
+## 📄 License
 
-ISC
+This project is licensed under the ISC License.
