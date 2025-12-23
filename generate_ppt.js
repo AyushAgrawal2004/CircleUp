@@ -89,14 +89,15 @@ addContentSlide("5. Version Control Strategy", [
 ]);
 
 // 7. Workflow Diagram
-// Since we can't easily draw Mermaid, we'll describe it
-addContentSlide("Git Workflow Visualized", [
-    "1. Main Branch (Production)",
-    "2. Feature Branch: feature-dark-mode (Rebased on Main)",
-    "3. Feature Branch: feature-music (Merged)",
-    "4. Release Branch: v1.5 (Bug fixes, Merged)",
-    "Tags: v1.0, v1.1, v1.5 marked stable releases."
-]);
+let workflowSlide = pres.addSlide();
+workflowSlide.background = bgDark;
+workflowSlide.addText("Git Workflow Visualized", { x: 0.5, y: 0.5, w: "90%", h: 0.8, fontSize: 32, color: accentColor, bold: true, border: { pt: 0, pb: "1", color: accentColor } });
+// Image path relative to where script is run
+try {
+    workflowSlide.addImage({ path: "workflow_chart.png", x: 0.5, y: 1.5, w: "90%", h: 3.5 });
+} catch (e) {
+    workflowSlide.addText("Error loading diagram image.", { x: 0.5, y: 2, fontSize: 18, color: textLight });
+}
 
 // 8. Key Features (DevOps)
 addContentSlide("6. Key Feature Delivery", [
