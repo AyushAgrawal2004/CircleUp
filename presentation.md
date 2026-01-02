@@ -7,7 +7,7 @@
 
 ---
 
-## 2. Problem Identification: "The Group Chat Chaos"
+## 3. Problem Identification: "The Group Chat Chaos"
 In today's digital landscape, we face a common frustration:
 
 *   **🚫 No Event Planning in WhatsApp**:
@@ -27,7 +27,7 @@ In today's digital landscape, we face a common frustration:
 *   **💡 Lack of Admin Control**: In standard group chats, anyone can delete messages (sometimes) or spam. There's no way to let *only* the event creator manage their specific event threads.
 
 
-## 3. The Solution: CircleUp
+## 4. The Solution: CircleUp
 CircleUp bridges these gaps by offering a unified platform:
 *   **All-in-One**: Combines real-time chat with structured community event management.
 *   **Enhanced Expression**: "Status Music" allows users to express their mood safely using local storage, avoiding server bloat.
@@ -36,7 +36,7 @@ CircleUp bridges these gaps by offering a unified platform:
 
 ---
 
-## 4. Technical Architecture (Brief)
+## 5. Technical Architecture (Brief)
 
 ### 🖥️ Frontend
 *   **Core**: React.js with Vite for fast HMR (Hot Module Replacement).
@@ -52,7 +52,7 @@ CircleUp bridges these gaps by offering a unified platform:
 
 ---
 
-## 5. Version Control Strategy (Git)
+## 6. Version Control Strategy (Git)
 We adopted a robust **Feature Branch Workflow** to ensure code stability and enable parallel development.
 
 ### 🌿 Branching Structure
@@ -120,7 +120,7 @@ gitGraph
 
 ---
 
-## 6. Key Feature Delivery
+## 7. Key Feature Delivery
 The workflow supported the rapid deployment of:
 
 ### 🌑 Dark Mode (v1.1)
@@ -138,12 +138,12 @@ The workflow supported the rapid deployment of:
 
 ---
 
-## 7. GitHub Usage
+## 8. GitHub Usage
 *   **Remote Repositories**: Hosted on GitHub for collaboration.
 *   **Release Management**: Tagging versions (`v1.5`) to mark stable deployment points.
 *   **Documentation**: maintained a comprehensive `README.md` with badges and clear installation steps.
 
 ---
 
-## 8. Conclusion
+## 9. Conclusion
 This project demonstrates not just full-stack development skills, but a disciplined **DevOps mindset**—using Git not just as a save button, but as a tool for managing complexity and ensuring robust software delivery.

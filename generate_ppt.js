@@ -56,8 +56,19 @@ addContentSlide("1. Introduction", [
     { label: "Tech Stack", text: "MERN (MongoDB, Express, React, Node.js) + Socket.IO." }
 ]);
 
+// 2. Table of Contents
+addContentSlide("2. Table of Contents", [
+    "1. Problem Identification",
+    "2. The Solution: CircleUp",
+    "3. Technical Architecture",
+    "4. Version Control Strategy",
+    "5. Key Feature Delivery",
+    "6. GitHub Usage",
+    "7. Conclusion"
+]);
+
 // 3. Problem Identification
-addContentSlide("2. Problem Identification", [
+addContentSlide("3. Problem Identification", [
     { label: "No Event Planning in WhatsApp", text: "Details lost in spam. Confusion on who/where." },
     { label: "Boring Status Updates", text: "Static text/images lack 'vibe'. No local music support." },
     { label: "Fragmented Tools", text: "Switching apps (Insta, G-Forms, WhatsApp) to manage one event." },
@@ -67,7 +78,7 @@ addContentSlide("2. Problem Identification", [
 ]);
 
 // 4. The Solution
-addContentSlide("3. The Solution: CircleUp", [
+addContentSlide("4. The Solution: CircleUp", [
     { label: "All-in-One", text: "Unified Chat + Event Management." },
     { label: "Status Music", text: "Expressive local audio statuses (Green DevOps: no server bloat)." },
     { label: "User-Centric", text: "Dark Mode, Responsive, Simple UI." },
@@ -75,7 +86,7 @@ addContentSlide("3. The Solution: CircleUp", [
 ]);
 
 // 5. Architecture
-addContentSlide("4. Technical Architecture (Brief)", [
+addContentSlide("5. Technical Architecture (Brief)", [
     { label: "Frontend", text: "React + Vite, TailwindCSS (for Dark Mode), Zustand." },
     { label: "Backend", text: "Node/Express, MongoDB (Flexible schema)." },
     { label: "Real-time", text: "Socket.IO for instant msg & status updates." }
@@ -83,14 +94,14 @@ addContentSlide("4. Technical Architecture (Brief)", [
 
 // 6. Git Strategy - Deep Dive
 // Slide 6.1: Why Git?
-addContentSlide("5.1 Version Control: Why Git?", [
+addContentSlide("6.1 Version Control: Why Git?", [
     { label: "Safety Net", text: "Every change is tracked. 'git reflog' saves us from mistakes." },
     { label: "Collaboration", text: "Enables multiple developers (or feature branches) to work in parallel." },
     { label: "Code Integrity", text: "Ensures production code (`main`) remains stable while features are tested elsewhere." }
 ]);
 
 // Slide 6.2: Branching Strategy
-addContentSlide("5.2 Branching Strategy", [
+addContentSlide("6.2 Branching Strategy", [
     { label: "main", text: "The 'Golden Copy'. Only stable, tested code lands here." },
     { label: "v1.1 (Dark Mode)", text: "Isolated logic for theming. Prevents CSS bugs from affecting main app." },
     { label: "v1.2 (Status Music)", text: "Experimental features (IndexedDB) kept separate until proven stable." },
@@ -98,14 +109,14 @@ addContentSlide("5.2 Branching Strategy", [
 ]);
 
 // Slide 6.3: The Rebase Workflow
-addContentSlide("5.3 DevOps Logic: Rebase over Merge", [
+addContentSlide("6.3 DevOps Logic: Rebase over Merge", [
     { label: "The Problem", text: "Standard merges create 'commit bubbles' and messy history." },
     { label: "The Solution", text: "`git rebase main` moves feature commits on TOP of the latest main." },
     { label: "Benefit", text: "Linear History. Makes tracking bugs (`git bisect`) and code reviews much easier." }
 ]);
 
 // Slide 6.4: GitHub Features
-addContentSlide("5.4 GitHub Power Tools", [
+addContentSlide("6.4 GitHub Power Tools", [
     { label: "Semantic Commits", text: "Using `feat:`, `fix:`, `docs:` prefixes for clarity." },
     { label: "Release Tags", text: "Using `git tag v1.5` to mark specific deployment points." },
     { label: "Remote Backup", text: "Decentralized code storage ensures no data loss." }
@@ -122,22 +133,23 @@ try {
     workflowSlide.addText("Error loading diagram image.", { x: 0.5, y: 2, fontSize: 18, color: textLight });
 }
 
+
 // 8. Key Features (DevOps)
-addContentSlide("6. Key Feature Delivery", [
+addContentSlide("7. Key Feature Delivery", [
     { label: "Dark Mode (v1.1)", text: "Config-based theming (Tailwind). Persisted via LocalStorage." },
     { label: "Status Music", text: "Binary data handling. Decision: Client-side IndexedDB (Efficiency)." },
     { label: "v1.5 Releases", text: "Agile fixes: Logout Button, Secure Event Deletion." }
 ]);
 
 // 9. GitHub Usage
-addContentSlide("7. GitHub Usage", [
+addContentSlide("8. GitHub Usage", [
     "Remote Collaboration suitable for teams.",
     "Release Management with Git Tags.",
     "Comprehensive Documentation (README w/ Badges)."
 ]);
 
 // 10. Conclusion
-addContentSlide("8. Conclusion", [
+addContentSlide("9. Conclusion", [
     "Demonstrates Full-Stack + DevOps Mindset.",
     "Git used as a strategic tool, not just a save button.",
     "Result: Robust, clean, and user-centric software delivery."
